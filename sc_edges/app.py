@@ -24,6 +24,7 @@ class app(base_app):
 
     # IPOL demo system configuration
     title = "A Review of Classic Edge Detectors"
+    xlink_article = 'http://www.ipol.im/'
     input_nb = 1          # number of input images
     input_max_pixels = 100000000  # max size (in pixels) of an input image
     input_max_weight = 3 * input_max_pixels  # max size (in bytes)
