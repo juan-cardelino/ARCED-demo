@@ -65,8 +65,8 @@ class app(base_app):
         log_file = self.base_dir + "build.log"
 
         # get the latest source archive
-        build.download("http://dev.ipol.im/~haldos/"
-                   	+ "classic_edge_detectors_1.0.zip", tgz_file)
+        build.download("http://dev.ipol.im/~juanc/files/ipol"
+                   	+ "classic_edge_detectors_1.1.zip", tgz_file)
 
         # test if the dest file is missing, or too old
         if (os.path.isfile(prog_file)
