@@ -65,8 +65,8 @@ class app(base_app):
         log_file = self.base_dir + "build.log"
 
         # get the latest source archive
-        build.download("http://dev.ipol.im/~juanc/files/ipol"
-                   	+ "classic_edge_detectors_1.1.zip", tgz_file)
+        build.download("http://dev.ipol.im/~juanc/files/ipol/"
+                   	+ "classic_edge_detectors_1.2.zip", tgz_file)
 
         # test if the dest file is missing, or too old
         if (os.path.isfile(prog_file)
@@ -78,13 +78,13 @@ class app(base_app):
             build.extract(tgz_file, self.src_dir)
             # build the program
             build.run("cd %s && make" % (self.src_dir
-                                         + "classic_edge_detectors_1.0"),
+                                         + "classic_edge_detectors"),
                       stdout=log_file)
             # save into bin dir
             if os.path.isdir(self.bin_dir):
                 shutil.rmtree(self.bin_dir)
             os.mkdir(self.bin_dir)
-            shutil.copy(self.src_dir + "classic_edge_detectors_1.0/edges",
+            shutil.copy(self.src_dir + "classic_edge_detectors/edges",
                         prog_file)
             # cleanup the source dir
             shutil.rmtree(self.src_dir)
