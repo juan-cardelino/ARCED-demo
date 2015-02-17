@@ -59,14 +59,15 @@ class app(base_app):
         """"Download and compile EDGES program."""
 
         # store common file path in variables
-        arced_url = "not available yet"
-        tgz_file = self.dl_dir + "classic_edge_detectors_1.0.zip"
+        # arced_url = "not available yet"
+        arced_code = "classic_edge_detectors_1.0.zip"
+        tgz_file = self.dl_dir + arced_code 
         prog_file = self.bin_dir + "edges"
         log_file = self.base_dir + "build.log"
 
         # get the latest source archive
         build.download("http://dev.ipol.im/~juanc/files/ipol/"
-                   	+ "classic_edge_detectors_1.2.zip", tgz_file)
+                   	+ arced_code, tgz_file)
 
         # test if the dest file is missing, or too old
         if (os.path.isfile(prog_file)
@@ -211,7 +212,7 @@ class app(base_app):
         # run the algorithm
         try:
             run_time = time.time()
-            self.run_algo(th_fded,rho,sigma,n,tzc,sigma2,n2,tzc2,inv)
+            self.run_algo(th_fded, rho, sigma, n, tzc, sigma2, n2, tzc2, inv)
             self.cfg['info']['run_time'] = time.time() - run_time
             self.cfg.save()
         except TimeoutError:
@@ -296,7 +297,7 @@ class app(base_app):
             # if image is too small add space for archive link
             h = max(70, image(self.work_dir + 'input_0_selection.png').size[1])
             png = True
-        except Exception:
+        except IOError:
             h = 70
             png = False
 
