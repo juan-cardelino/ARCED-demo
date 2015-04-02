@@ -60,7 +60,7 @@ class app(base_app):
 
         # store common file path in variables
         # arced_url = "not available yet"
-        arced_code = "classic_edge_detectors_1.2.zip"
+        arced_code = "classic_edge_detectors_1.3.zip"
         tgz_file = self.dl_dir + arced_code 
         prog_file = self.bin_dir + "edges"
         log_file = self.base_dir + "build.log"
